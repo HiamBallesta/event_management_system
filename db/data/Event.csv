@@ -1,0 +1,3 @@
+ID,name,startDate,endDate,location,description,isActive,isCancelled,cancellationReason
+1,Festival Vallenato,2025-04-17,2025-05-04,Valledupar,Festival de la leyenda Vallenata,false,false,
+2,Carnaval de Negros y Blancos,2025-01-02,2025-01-07,Pasto,Carnaval de Negros Y Blancos,false,false,

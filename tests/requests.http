@@ -1,0 +1,74 @@
+### Get all events ###
+
+GET http://localhost:4004/odata/v4/event/Events
+Content-Type: application/json
+Accept: application/json
+
+### Get one event ###
+
+GET http://localhost:4004/odata/v4/event/Events(1)
+Content-Type: application/json
+Accept: application/json
+
+### Create event
+
+POST http://localhost:4004/odata/v4/event/Events
+Content-Type: application/json
+
+{
+    "name": "Event name"
+}
+
+### Get all participants
+
+GET http://localhost:4004/odata/v4/participant/Participants
+Content-Type: application/json
+Accept: application/json
+
+###  Get one participant
+
+GET http://localhost:4004/odata/v4/participant/Participants(1)
+Content-Type: application/json
+Accept: application/json
+
+### Get one participant details
+
+GET http://localhost:4004/odata/v4/participant/Participants(1)/fetchParticipantDetails
+Content-Type: application/json
+Accept: application/json
+
+### Create participant
+
+POST http://localhost:4004/odata/v4/participant/Participants
+Content-Type: application/json
+
+{
+    "firstName": "Pepito",
+    "lastName": "Perez"
+}
+
+### Register participant
+
+POST http://localhost:4004/odata/v4/event/Events(1)/registerParticipant
+Content-Type: application/json
+
+{
+    "participantId": 1
+}
+
+### Get Event participants
+GET http://localhost:4004/odata/v4/event/Events(1)/getEventParticipants
+Content-Type: application/json
+
+### Cancel event
+
+POST http://localhost:4004/odata/v4/event/Events(1)/cancelEvent
+Content-Type: application/json
+
+{
+    "cancellationReason": "Tornado"
+}
+
+### Reopen event
+POST http://localhost:4004/odata/v4/event/Events(1)/reopenEvent
+Content-Type: application/json

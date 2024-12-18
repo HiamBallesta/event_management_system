@@ -1,0 +1,4 @@
+ID,firstName,lastName,email,phone,event_ID,businessPartnerID
+1,Hiam,Ballesta,hiam.ballesta@gmail.com,012345678,1,9980000050
+2,Andres,Camacho,andres.camacho@gmail.com,012345678,2,29300015
+3,Camilo,Gonzales,camilo.gonzales@gmail.com,012345678,,1000004
