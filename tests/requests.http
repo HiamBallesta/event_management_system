@@ -1,45 +1,58 @@
+#@host = http://localhost:4004
+@host = https://433e6c12trial-dev-event-management-system-srv.cfapps.us10-001.hana.ondemand.com
+
 ### Get all events ###
 
-GET http://localhost:4004/odata/v4/event/Events
+GET {{host}}/odata/v4/event/Events
 Content-Type: application/json
 Accept: application/json
 
 ### Get one event ###
 
-GET http://localhost:4004/odata/v4/event/Events(1)
+GET {{host}}/odata/v4/event/Events(1)
 Content-Type: application/json
 Accept: application/json
 
 ### Create event
 
-POST http://localhost:4004/odata/v4/event/Events
+POST {{host}}/odata/v4/event/Events
 Content-Type: application/json
 
 {
+    "ID": "3",
     "name": "Event name"
+}
+
+### Update event
+
+PATCH {{host}}/odata/v4/event/Events(3)
+Content-Type: application/json
+
+{
+    "description": "my description"
 }
 
 ### Get all participants
 
-GET http://localhost:4004/odata/v4/participant/Participants
+GET {{host}}/odata/v4/participant/Participants
 Content-Type: application/json
 Accept: application/json
 
 ###  Get one participant
 
-GET http://localhost:4004/odata/v4/participant/Participants(1)
+GET {{host}}/odata/v4/participant/Participants(1)
 Content-Type: application/json
 Accept: application/json
 
 ### Get one participant details
 
-GET http://localhost:4004/odata/v4/participant/Participants(1)/fetchParticipantDetails
+GET {{host}}/odata/v4/participant/Participants(1)/fetchParticipantDetails
 Content-Type: application/json
 Accept: application/json
 
 ### Create participant
 
-POST http://localhost:4004/odata/v4/participant/Participants
+POST {{host}}/odata/v4/participant/Participants
 Content-Type: application/json
 
 {
@@ -49,7 +62,7 @@ Content-Type: application/json
 
 ### Register participant
 
-POST http://localhost:4004/odata/v4/event/Events(1)/registerParticipant
+POST {{host}}/odata/v4/event/Events(1)/registerParticipant
 Content-Type: application/json
 
 {
@@ -57,12 +70,12 @@ Content-Type: application/json
 }
 
 ### Get Event participants
-GET http://localhost:4004/odata/v4/event/Events(1)/getEventParticipants
+GET {{host}}/odata/v4/event/Events(1)/getEventParticipants
 Content-Type: application/json
 
 ### Cancel event
 
-POST http://localhost:4004/odata/v4/event/Events(1)/cancelEvent
+POST {{host}}/odata/v4/event/Events(1)/cancelEvent
 Content-Type: application/json
 
 {
@@ -70,5 +83,5 @@ Content-Type: application/json
 }
 
 ### Reopen event
-POST http://localhost:4004/odata/v4/event/Events(1)/reopenEvent
+POST {{host}}/odata/v4/event/Events(1)/reopenEvent
 Content-Type: application/json

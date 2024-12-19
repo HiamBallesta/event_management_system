@@ -1,6 +1,6 @@
-# Getting Started
+# Event management system
 
-Welcome to your new project.
+Basic event management system made using SAP CAP framework.
 
 It contains these folders and files, following our recommended project layout:
 
@@ -13,12 +13,19 @@ File or Folder | Purpose
 `package.json` | project metadata and configuration
 `readme.md` | this getting started guide
 
+# Models
 
-## Next Steps
+## Events
+Contain basic information of an event
 
+## Participants
+Each event participant
+
+
+## How to run
+
+- Run npm i
 - Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
 
 ## Deployment steps
 
