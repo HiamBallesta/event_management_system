@@ -20,6 +20,10 @@ File or Folder | Purpose
 - (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
 - Start adding content, for example, a [db/schema.cds](db/schema.cds).
 
+## Deployment steps
+
+- You must open this project in SAP BAS and configure all necessary resources
+- Run `npm run deploy`
 
 ## Learn More
 
