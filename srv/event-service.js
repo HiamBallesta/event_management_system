@@ -2,7 +2,7 @@ const cds = require('@sap/cds');
 
 class EventService extends cds.ApplicationService {
     init() {
-        const {Event, Participant} = cds.entities('sap.capire.event_management_system');
+        const {Events, Participants} = this.entities;
 
         //POST /event/Events(id)/registerParticipant
         /**
@@ -14,17 +14,17 @@ class EventService extends cds.ApplicationService {
             const eventId = request.params[0];
             const { participantId } = request.data;
 
-            let event = await SELECT.from(Event, eventId);
+            let event = await SELECT.from(Events, `${eventId}`);
 
             if (!event) return request.error(404, `Event #${eventId} doesn't exists`);
             if (!participantId) return request.error(400, `Participant ID not provided`);
 
-            const participant = await SELECT.from(Participant, participantId);
+            const participant = await SELECT.from(Participants, participantId);
             if (!participant) return request.error(404, `Participant #${participantId} doesn't exists`);
 
-            await UPDATE(Participant, participantId).with({ event_ID: eventId });
+            await UPDATE(Participants, participantId).with({ event_ID: eventId });
 
-            event = await SELECT.from(Event, eventId);
+            event = await SELECT.from(Events, eventId);
 
             return event;
         });
@@ -32,7 +32,7 @@ class EventService extends cds.ApplicationService {
         this.on('getEventParticipants', 'Events', async request => {
             const eventId = request.params[0];
             console.log(eventId);
-            const participants = await SELECT.from(Participant).where({event_ID: eventId});
+            const participants = await SELECT.from(Participants).where({event_ID: eventId});
 
             return participants;
         });
@@ -41,9 +41,9 @@ class EventService extends cds.ApplicationService {
             const eventId = request.params[0];
 
             const { cancellationReason } = request.data;
-            await UPDATE(Event, eventId).with({ isCancelled: true, cancellationReason: cancellationReason, isActive: false});
+            await UPDATE(Events, eventId).with({ isCancelled: true, cancellationReason: cancellationReason, isActive: false});
 
-            const event = await SELECT.from(Event, eventId);
+            const event = await SELECT.from(Events, eventId);
 
             return event;
 
@@ -52,9 +52,9 @@ class EventService extends cds.ApplicationService {
         this.on('reopenEvent', 'Events', async request => {
             const eventId = request.params[0];
 
-            await UPDATE(Event, eventId).with({ isCancelled: false, cancellationReason: null, isActive: true});
+            await UPDATE(Events, eventId).with({ isCancelled: false, cancellationReason: null, isActive: true});
 
-            const event = await SELECT.from(Event, eventId);
+            const event = await SELECT.from(Events, eventId);
 
             return event;
 

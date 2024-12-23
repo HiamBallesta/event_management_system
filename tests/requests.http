@@ -57,7 +57,8 @@ Content-Type: application/json
 
 {
     "firstName": "Pepito",
-    "lastName": "Perez"
+    "lastName": "Perez",
+    "ID": "5"
 }
 
 ### Register participant
@@ -66,7 +67,7 @@ POST {{host}}/odata/v4/event/Events(1)/registerParticipant
 Content-Type: application/json
 
 {
-    "participantId": 1
+    "participantId": "1"
 }
 
 ### Get Event participants
